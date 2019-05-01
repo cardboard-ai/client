@@ -1,0 +1,4 @@
+.bg-img-auth {
+    background: url('../images/auth-background.jpg');
+    @apply h-screen bg-center;
+}

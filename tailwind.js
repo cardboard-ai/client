@@ -46,12 +46,12 @@ let colors = {
     transparent: 'transparent',
 
     black: '#22292f',
-    'grey-darkest': '#3d4852',
-    'grey-darker': '#606f7b',
-    'grey-dark': '#8795a1',
-    grey: '#b8c2cc',
-    'grey-light': '#dae1e7',
-    'grey-lighter': '#f1f5f8',
+    'grey-darkest': '#2e384d',
+    'grey-darker': '#69707f',
+    'grey-dark': '#8798ad',
+    grey: '#bfc5d2',
+    'grey-light': '#eef3f5',
+    'grey-lighter': '#f4f5fa',
     'grey-lightest': '#f8fafc',
     white: '#ffffff',
 
@@ -98,7 +98,7 @@ let colors = {
     'blue-darkest': '#12283a',
     'blue-darker': '#1c3d5a',
     'blue-dark': '#2779bd',
-    blue: '#3490dc',
+    blue: '#2e5bff',
     'blue-light': '#6cb2eb',
     'blue-lighter': '#bcdefa',
     'blue-lightest': '#eff8ff',
@@ -202,7 +202,7 @@ module.exports = {
             'Fira Sans',
             'Droid Sans',
             'Helvetica Neue',
-            'sans-serif'
+            'sans-serif',
         ],
         serif: [
             'Constantia',
@@ -223,6 +223,9 @@ module.exports = {
             'Liberation Mono',
             'Courier New',
             'monospace'
+        ],
+        rubik: [
+            'Rubik',
         ]
     },
 

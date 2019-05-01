@@ -8,10 +8,12 @@
         "lint": "vue-cli-service lint"
     },
     "dependencies": {
+        "axios": "^0.18.0",
         "postcss-loader": "^3.0.0",
         "postcss-url": "^8.0.0",
         "register-service-worker": "^1.6.2",
         "tailwindcss": "^0.7.4",
+        "underscore": "^1.9.1",
         "vue": "^2.6.6",
         "vue-router": "^3.0.1"
     },
