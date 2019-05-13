@@ -1,10 +1,10 @@
 /**
  * Form helper class.
  */
-window.Form = function (data) {
+window.Form = function (data, component) {
     var form = this;
 
-    _.extend(this, data);
+    // _.extend(this, data);
 
     /**
      * Initialize the form error class.
@@ -17,7 +17,7 @@ window.Form = function (data) {
     /**
      * Set the working variable to true.
      */
-    this.workingProcess = function () {
+    function workingProcess () {
         form.errors.forget();
         form.working = true;
         form.successful = false;
@@ -26,7 +26,7 @@ window.Form = function (data) {
     /**
      * Set the successful variable to true.
      */
-    this.finishProcess = function () {
+    function finishProcess () {
         form.working = false;
         form.successful = true;
     };
@@ -43,8 +43,39 @@ window.Form = function (data) {
     /**
      * Define the errors on the form.
      */
-    this.defineErrors = function (errors) {
+    function defineErrors (errors) {
         form.working = false;
         form.errors.set(errors);
     };
+
+    /**
+     * Open the form and specify it's HTTP method and URI.
+     */
+    this.open = function (method, uri, formName = null) {
+        component.$validator.validate(formName).then((result) => {
+            workingProcess();
+
+            // First validate the frontend
+            if (!result) {
+                defineErrors(component.$validator.errors);
+
+                return false;
+            }
+
+            // Define the URL based on the environment base URL and given URI
+            // var url = process.env.BASE_URL + uri;
+
+            // Prepare the form data by removing default properties
+            var formData = _.omit(this, ['errors', 'working', 'successful']);
+
+            // Execute the Axios request and process the backend validation
+            axios({ method: method, url: uri, data: formData })
+            .then(response => {
+                finishProcess();
+            })
+            .catch(err => {
+                defineErrors(err.response.data.errors);
+            });
+        });
+    }
 };

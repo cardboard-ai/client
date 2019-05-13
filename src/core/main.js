@@ -1,7 +1,10 @@
 import Vue from 'vue';
+import VeeValidate from 'vee-validate';
 import App from './App.vue';
 import router from './router';
 import './registerServiceWorker';
+
+Vue.use(VeeValidate);
 
 // Helpers
 import './helpers/forms/form';

@@ -1,3 +1,5 @@
+import { ErrorBag } from 'vee-validate';
+
 /**
  * Form error collection class.
  */
@@ -16,7 +18,7 @@ window.FormErrors = function () {
      */
     this.get = function (field) {
         if (this.has(field)) {
-            errors = this.errors[field][0].toString();
+            var errors = this.errors[field][0].toString();
             return errors.charAt(0).toUpperCase() + errors.slice(1);
         }
     };
@@ -25,7 +27,16 @@ window.FormErrors = function () {
      * Set the back-end errors in the collection.
      */
     this.set = function (errors) {
-        if (typeof errors === 'object') {
+        if (errors instanceof ErrorBag) {
+            var obj = [];
+            var errors = _.mapObject(errors.items, function(val, key) {
+                obj[val['field']] = [val['msg']];
+
+                return obj;
+            });
+
+            this.errors = errors[0];
+        } else if (typeof errors === 'object') {
             this.errors = errors;
         } else {
             this.errors = {'form': ['Something went wrong, please contact the site admin.']};
