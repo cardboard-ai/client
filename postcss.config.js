@@ -1,6 +1,6 @@
-const tailwindcss = require('tailwindcss')
-const purgecss = require('@fullhuman/postcss-purgecss')
-const autoprefixer = require('autoprefixer')
+const tailwindcss = require('tailwindcss');
+const purgecss = require('@fullhuman/postcss-purgecss');
+const autoprefixer = require('autoprefixer');
 
 const isHotReloaded = process.argv.indexOf('serve') !== -1
 
@@ -12,7 +12,7 @@ class TailwindExtractor {
 
 module.exports = {
     plugins: [
-        tailwindcss('./tailwind.js'),
+        tailwindcss,
         isHotReloaded ? null : purgecss({
             content: ['./src/**/*.vue'],
             extractors: [

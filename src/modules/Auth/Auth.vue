@@ -5,6 +5,6 @@
                 <slot></slot>
             </div>
         </div>
-        <div class="flex-1 md:inline-block hidden bg-img-auth"></div>
+        <div class="flex-1 h-screen md:inline-block hidden bg-img-auth"></div>
     </div>
 </template>

@@ -9,11 +9,13 @@
     },
     "dependencies": {
         "axios": "^0.18.0",
+        "postcss-import": "^12.0.1",
         "postcss-loader": "^3.0.0",
         "postcss-url": "^8.0.0",
         "register-service-worker": "^1.6.2",
-        "tailwindcss": "^0.7.4",
+        "tailwindcss": "^1.0.1",
         "underscore": "^1.9.1",
+        "vee-validate": "^2.2.6",
         "vue": "^2.6.6",
         "vue-router": "^3.0.1"
     },
