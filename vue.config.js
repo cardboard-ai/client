@@ -4,4 +4,4 @@ module.exports = {
             entry: 'src/core/main.js'
         }
     }
-}
+};

@@ -1,7 +1,7 @@
 /**
  * Form helper class.
  */
-window.Form = function (data, component) {
+window.Form = function(data, component) {
     var form = this;
 
     // _.extend(this, data);
@@ -17,24 +17,24 @@ window.Form = function (data, component) {
     /**
      * Set the working variable to true.
      */
-    function workingProcess () {
+    function workingProcess() {
         form.errors.forget();
         form.working = true;
         form.successful = false;
-    };
+    }
 
     /**
      * Set the successful variable to true.
      */
-    function finishProcess () {
+    function finishProcess() {
         form.working = false;
         form.successful = true;
-    };
+    }
 
     /**
      * Forget the errors.
      */
-    this.resetErrors = function () {
+    this.resetErrors = function() {
         form.errors.forget();
         form.working = false;
         form.successful = false;
@@ -43,16 +43,16 @@ window.Form = function (data, component) {
     /**
      * Define the errors on the form.
      */
-    function defineErrors (errors) {
+    function defineErrors(errors) {
         form.working = false;
         form.errors.set(errors);
-    };
+    }
 
     /**
      * Open the form and specify it's HTTP method and URI.
      */
-    this.open = function (method, uri, formName = null) {
-        component.$validator.validate(formName).then((result) => {
+    this.open = function(method, uri, formName = null) {
+        component.$validator.validate(formName).then(result => {
             workingProcess();
 
             // First validate the frontend
@@ -63,23 +63,23 @@ window.Form = function (data, component) {
             }
 
             // Define the URL based on the environment base URL and given URI
-            // var url = process.env.BASE_URL + uri;
+            var url = process.env.VUE_APP_ROOT_API + uri;
 
             // Prepare the form data by removing default properties
             var formData = _.omit(this, ['errors', 'working', 'successful']);
 
             // Execute the Axios request and process the backend validation
-            axios({ method: method, url: uri, data: formData })
-            .then(response => {
-                finishProcess();
-            })
-            .catch(err => {
-                if (err.response.status === 401) {
-                    localStorage.removeItem('user');
-                }
+            axios({ method: method, url: url, data: formData })
+                .then(response => {
+                    finishProcess();
+                })
+                .catch(err => {
+                    if (err.response.status === 401) {
+                        localStorage.removeItem('user');
+                    }
 
-                defineErrors(err.response.data.errors);
-            });
+                    defineErrors(err.response.data.errors);
+                });
         });
-    }
+    };
 };

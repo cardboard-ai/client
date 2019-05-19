@@ -38,7 +38,7 @@ let colors = {
         500: '#bfc5d2',
         600: '#96a7bb',
         800: '#8798ad',
-        900: '#69707f',
+        900: '#69707f'
     },
     white: '#ffffff',
 
@@ -49,14 +49,14 @@ let colors = {
         500: '#2e5bff',
         600: '#2952e6',
         800: '#1c3799',
-        900: '#0e1b4d',
+        900: '#0e1b4d'
     },
 
     red: '#d63649',
     yellow: '#f7c137',
     green: '#33ac2e',
     teal: '#00c1d4',
-    purple: '#8c54ff',
+    purple: '#8c54ff'
 };
 
 module.exports = {
@@ -65,6 +65,6 @@ module.exports = {
     separator: ':',
     theme: {
         colors: colors,
-        plugins: [],
+        plugins: []
     }
-}
+};
