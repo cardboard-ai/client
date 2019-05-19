@@ -74,6 +74,10 @@ window.Form = function (data, component) {
                 finishProcess();
             })
             .catch(err => {
+                if (err.response.status === 401) {
+                    localStorage.removeItem('user');
+                }
+
                 defineErrors(err.response.data.errors);
             });
         });
