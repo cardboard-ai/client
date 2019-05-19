@@ -1,42 +1,21 @@
-/**
- * Retrieve each middleware from the current route.
- */
-function getMiddleware(context, middleware, index) {
-    const specifiedMiddleware = middleware[index];
+export default function (context) {
+    if (user === null) {
+        axios.get('http://127.0.0.1:8000/api/user')
+            .then(function (response) {
+                if (response.data instanceof Object) {
+                    localStorage.setItem('user', JSON.stringify(response.data));
 
-    // Check whether there's middleware provided.
-    if (typeof specifiedMiddleware === 'undefined') {
-        return context.next;
+                    return context.next();
+                }
+
+                context.next('/');
+            })
+            .catch(function (error) {
+                //
+            });
     }
 
-    return (...parameters) => {
-        context.next(...parameters);
-
-        const nextMiddleware = getMiddleware(context, middleware, index);
-        specifiedMiddleware({ ...context, next: nextMiddleware });
-    };
+    if (user instanceof Object) {
+        context.next();
+    }
 };
-
-/**
- * Pass for each route the specified middleware.
- */
-router.beforeEach((to, from, next) => {
-    if (typeof to.meta.middleware !== 'undefined') {
-        const middleware = Array.isArray(to.meta.middleware)
-        ? to.meta.middleware
-        : [to.meta.middleware];
-
-        const context = {
-            from,
-            next,
-            router,
-            to,
-        };
-
-        const nextMiddleware = getMiddleware(context, middleware, 1);
-
-        return middleware[0]({ ...context, next: nextMiddleware });
-    }
-
-    return next();
-});
