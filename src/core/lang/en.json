@@ -1,0 +1,29 @@
+{
+    "app": "Cardboard",
+    "heading": {
+        "login": "Sign in to Cardboard",
+        "register": "Get started for free"
+    },
+    "leading": {
+        "login": "Please enter your credentials to proceed.",
+        "register": "No creditcard needed."
+    },
+    "label": {
+        "no_account": "Don't have an account yet?",
+        "register": "Sign up",
+        "already_account": "Already have an account?",
+        "logged_in": "We have e-mailed you a magic link! By clicking on this link you are logged in immediately."
+    },
+    "input": {
+        "full_name": "Full name",
+        "email": "Email address"
+    },
+    "button": {
+        "login": "Sign in",
+        "register": "Create account"
+    },
+    "button_in_process": {
+        "login": "Signing in",
+        "register": "Creating an account"
+    }
+}

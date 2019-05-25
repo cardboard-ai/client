@@ -17,7 +17,7 @@ window.Form = function(data, component) {
     /**
      * Set the working variable to true.
      */
-    function workingProcess() {
+    function workInProcess() {
         form.errors.forget();
         form.working = true;
         form.successful = false;
@@ -53,7 +53,7 @@ window.Form = function(data, component) {
      */
     this.open = function(method, uri, formName = null) {
         component.$validator.validate(formName).then(result => {
-            workingProcess();
+            workInProcess();
 
             // First validate the frontend
             if (!result) {

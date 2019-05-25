@@ -1,5 +1,8 @@
+import Vue from 'vue';
 import Router from 'vue-router';
 import routes from './routes';
+
+Vue.use(Router);
 
 // Initiliaze Vue instance and routes
 var router = new Router({
@@ -22,22 +25,24 @@ function getMiddleware(context, middleware, index) {
         const nextMiddleware = getMiddleware(context, middleware, index);
         specifiedMiddleware({ ...context, next: nextMiddleware });
     };
-};
+}
 
 /**
  * Pass for each route the specified middleware.
  */
 router.beforeEach((to, from, next) => {
+    document.title = to.meta.title ? to.meta.title : process.env.VUE_APP_NAME;
+
     if (typeof to.meta.middleware !== 'undefined') {
         const middleware = Array.isArray(to.meta.middleware)
-        ? to.meta.middleware
-        : [to.meta.middleware];
+            ? to.meta.middleware
+            : [to.meta.middleware];
 
         const context = {
             from,
             next,
             router,
-            to,
+            to
         };
 
         const nextMiddleware = getMiddleware(context, middleware, 1);

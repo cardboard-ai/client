@@ -1,12 +1,18 @@
 import Vue from 'vue';
-import VeeValidate from 'vee-validate';
+import VeeValidate, {Validator} from 'vee-validate';
 import App from './App.vue';
-import Router from 'vue-router';
+import i18n from './locales';
 import router from './router';
 import './registerServiceWorker';
 
 Vue.use(VeeValidate);
-Vue.use(Router);
+
+if (['en', 'nl'].indexOf(i18n.locale) !== -1) {
+    Validator.localize(
+        i18n.locale,
+        require(`vee-validate/dist/locale/${i18n.locale}`)
+    );
+}
 
 // Turn the production tip message on
 Vue.config.productionTip = true;
@@ -25,8 +31,8 @@ import './helpers/forms/form';
 import './helpers/forms/errors';
 
 new Vue({
+    el: '#app',
+    i18n,
     router,
-    render: function(h) {
-        return h(App);
-    }
-}).$mount('#app');
+    render: h => h(App)
+});
