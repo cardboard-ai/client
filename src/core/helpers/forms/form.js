@@ -11,23 +11,23 @@ window.Form = function(data, component) {
      */
     this.errors = new FormErrors();
 
-    this.working = false;
+    this.running = false;
     this.successful = false;
 
     /**
      * Set the working variable to true.
      */
-    function workInProcess() {
+    function startProcess() {
         form.errors.forget();
-        form.working = true;
+        form.running = true;
         form.successful = false;
     }
 
     /**
      * Set the successful variable to true.
      */
-    function finishProcess() {
-        form.working = false;
+    function stopProcess() {
+        form.running = false;
         form.successful = true;
     }
 
@@ -36,7 +36,7 @@ window.Form = function(data, component) {
      */
     this.resetErrors = function() {
         form.errors.forget();
-        form.working = false;
+        form.running = false;
         form.successful = false;
     };
 
@@ -44,7 +44,7 @@ window.Form = function(data, component) {
      * Define the errors on the form.
      */
     function defineErrors(errors) {
-        form.working = false;
+        form.running = false;
         form.errors.set(errors);
     }
 
@@ -53,7 +53,7 @@ window.Form = function(data, component) {
      */
     this.open = function(method, uri, formName = null) {
         component.$validator.validate(formName).then(result => {
-            workInProcess();
+            startProcess();
 
             // First validate the frontend
             if (!result) {
@@ -66,12 +66,12 @@ window.Form = function(data, component) {
             var url = process.env.VUE_APP_ROOT_API + uri;
 
             // Prepare the form data by removing default properties
-            var formData = _.omit(this, ['errors', 'working', 'successful']);
+            var formData = _.omit(this, ['errors', 'running', 'successful']);
 
             // Execute the Axios request and process the backend validation
             axios({ method: method, url: url, data: formData })
                 .then(response => {
-                    finishProcess();
+                    stopProcess();
                 })
                 .catch(err => {
                     if (err.response.status === 401) {

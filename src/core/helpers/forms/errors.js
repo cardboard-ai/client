@@ -29,7 +29,7 @@ window.FormErrors = function() {
     this.set = function(errors) {
         if (errors instanceof ErrorBag) {
             var obj = [];
-            var errors = _.mapObject(errors.items, function(val, key) {
+            var errors = _.mapObject(errors.items, function(val) {
                 obj[val['field']] = [val['msg']];
 
                 return obj;

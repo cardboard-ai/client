@@ -29,27 +29,25 @@ let defaultConfig = require('tailwindcss/defaultConfig');
 let colors = {
     transparent: 'transparent',
 
-    black: '#2e384d',
+    white: '#ffffff',
+    black: '#000000',
 
     gray: {
-        100: '#f8fafc',
-        200: '#eef3f5',
+        200: '#f4f6fc',
+        300: '#eef3f5',
         400: '#f4f5fa',
-        500: '#bfc5d2',
-        600: '#96a7bb',
-        800: '#8798ad',
-        900: '#69707f'
+        500: '#b0bac9',
+        600: '#bfc5d2',
+        700: '#8798ad',
+        800: '#69707f',
+        900: '#2e384d'
     },
-    white: '#ffffff',
 
     blue: {
-        100: '#eaefff',
-        200: '#abbdff',
-        400: '#6d8cff',
-        500: '#2e5bff',
-        600: '#2952e6',
-        800: '#1c3799',
-        900: '#0e1b4d'
+        100: '#f8f9ff',
+        200: '#e0e7ff',
+        500: '#6e9bff',
+        700: '#2e5bff'
     },
 
     red: '#d63649',
@@ -65,6 +63,9 @@ module.exports = {
     separator: ':',
     theme: {
         colors: colors,
-        plugins: []
+        plugins: [],
+        fontFamily: {
+            'default': ['Rubik', 'sans-serif'],
+        }
     }
 };

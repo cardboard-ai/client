@@ -4,5 +4,5 @@
 
 @tailwind utilities;
 
-/*@import "fonts.css";*/
+@import "fonts.css";
 @import "auth.css";

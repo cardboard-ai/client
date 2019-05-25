@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import VeeValidate, {Validator} from 'vee-validate';
+import VeeValidate, { Validator } from 'vee-validate';
 import App from './App.vue';
 import i18n from './locales';
 import router from './router';

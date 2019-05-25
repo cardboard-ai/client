@@ -5,10 +5,10 @@
                 <h1 class="text-xl font-semibold">{{ $t('app') }}</h1>
             </div>
             <div class="mt-32">
-                <h1 class="text-black text-4xl font-hairline">
+                <h1 class="text-gray-900 text-4xl font-hairline">
                     {{ $t('heading.login') }}
                 </h1>
-                <p class="leading-loose text-gray-800 mb-8">
+                <p class="leading-loose text-gray-700 mb-8">
                     {{ $t('leading.login') }}
                 </p>
                 <div
@@ -30,7 +30,7 @@
                             name="email"
                             v-model="form.email"
                             :class="{ 'border-red': form.errors.has('email') }"
-                            class="bg-gray-100 placeholder:text-gray-500 appearance-none border border-blue-100 rounded w-full py-3 px-3 mt-2 focus:outline-none"
+                            class="bg-blue-100 placeholder:text-gray-900 appearance-none border border-blue-200 rounded w-full py-3 px-3 mt-2 focus:outline-none"
                             id="email"
                             v-validate="'required|email'"
                             type="text"
@@ -46,12 +46,12 @@
                     </div>
                     <div class="mb-4">
                         <button
-                            class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-4 rounded focus:outline-none"
+                            class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-4 px-4 rounded focus:outline-none"
                             type="button"
                             @click="login"
-                            :disabled="form.working"
+                            :disabled="form.running"
                         >
-                            <span v-if="form.working" class="opacity-75">
+                            <span v-if="form.running" class="opacity-75">
                                 {{ $t('button_in_process.login') }}
                             </span>
 
@@ -61,10 +61,10 @@
                         </button>
                     </div>
                 </form>
-                <p class="text-center mt-6 text-gray-600">
+                <p class="text-center mt-6 text-gray-500">
                     {{ $t("label.no_account") }}
                     <router-link
-                        class="text-blue-500 no-underline"
+                        class="text-blue-700 no-underline"
                         to="register"
                     >
                         {{ $t('label.register') }}
