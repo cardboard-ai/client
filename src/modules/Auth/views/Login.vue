@@ -2,7 +2,7 @@
     <auth>
         <div class="flex flex-col">
             <div>
-                <h1 class="text-xl font-semibold">{{ $t('app') }}</h1>
+                <h1 class="text-gray-900 text-xl font-semibold">{{ $t('app') }}</h1>
             </div>
             <div class="mt-32">
                 <h1 class="text-gray-900 text-4xl font-hairline">
@@ -21,7 +21,7 @@
                 <form v-on:submit.prevent="login">
                     <div class="mb-8">
                         <label
-                            class="uppercase text-gray-600 font-bold text-xs tracking-wide"
+                            class="uppercase text-gray-500 font-bold text-xs tracking-wider"
                             for="email"
                         >
                             {{ $t('input.email') }}
@@ -46,7 +46,7 @@
                     </div>
                     <div class="mb-4">
                         <button
-                            class="w-full bg-blue-700 hover:bg-blue-900 text-white font-bold py-4 px-4 rounded focus:outline-none"
+                            class="w-full bg-blue-700 hover:bg-blue-500 text-white font-bold py-4 px-4 rounded focus:outline-none"
                             type="button"
                             @click="login"
                             :disabled="form.running"
