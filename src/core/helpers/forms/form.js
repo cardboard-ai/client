@@ -4,8 +4,6 @@
 window.Form = function(data, component) {
     var form = this;
 
-    // _.extend(this, data);
-
     /**
      * Initialize the form error class.
      */

@@ -3,7 +3,7 @@
         <div class="flex flex-col">
             <div>
                 <router-link to="/">
-                    <h1 class="text-xl font-semibold">{{ $t('app') }}</h1>
+                    <h1 class="text-gray-900 text-xl font-semibold">{{ $t('app') }}</h1>
                 </router-link>
             </div>
             <div class="mt-32">
@@ -14,53 +14,32 @@
                 <form v-on:submit.prevent="register">
                     <div class="mb-8">
                         <label
-                            class="uppercase text-gray-500 font-bold text-xs tracking-wide"
+                            class="uppercase text-gray-500 font-bold text-xs tracking-wider"
                             for="name"
                         >
                             {{ $t('input.full_name') }}
                         </label>
-                        <input
-                            name="name"
-                            v-model="form.name"
-                            :class="{ 'border-red': form.errors.has('name') }"
-                            class="bg-blue-100 placeholder:text-gray-900 appearance-none border border-blue-200 rounded w-full py-3 px-3 mt-2 focus:outline-none"
+                        <BaseInput
                             id="name"
+                            name="name"
+                            :form="form"
+                            v-model="form.name"
                             v-validate="'required'"
-                            type="text"
                             :placeholder="$t('input.full_name')"
-                            @keydown="form.resetErrors()"
                         />
-                        <div
-                            class="text-red fade-enter-active mt-1 text-xs"
-                            v-show="form.errors.has('name')"
-                        >
-                            {{ form.errors.get('name') }}
-                        </div>
                     </div>
                     <div class="mb-8">
-                        <label
-                            class="uppercase text-gray-500 font-bold text-xs tracking-wide"
-                            for="email"
-                            >
+                        <label class="uppercase text-gray-500 font-bold text-xs tracking-wider" for="email">
                             {{ $t('input.email') }}
                         </label>
-                        <input
-                            name="email"
-                            v-model="form.email"
-                            :class="{ 'border-red': form.errors.has('email') }"
-                            class="bg-blue-100 placeholder:text-gray-900 appearance-none border border-blue-200 rounded w-full py-3 px-3 mt-2 focus:outline-nones"
+                        <BaseInput
                             id="email"
+                            name="email"
+                            :form="form"
+                            v-model="form.email"
                             v-validate="'required|email'"
-                            type="text"
                             :placeholder="$t('input.email')"
-                            @keydown="form.resetErrors()"
                         />
-                        <div
-                            class="text-red fade-enter-active mt-1 text-xs"
-                            v-show="form.errors.has('email')"
-                        >
-                            {{ form.errors.get('email') }}
-                        </div>
                     </div>
                     <div class="mb-4">
                         <button
@@ -92,11 +71,13 @@
 
 <script>
 import Auth from '../Auth.vue';
+import BaseInput from '@/core/components/BaseInput';
 
 export default {
     name: 'register',
     components: {
-        Auth
+        Auth,
+        BaseInput
     },
     data() {
         return {

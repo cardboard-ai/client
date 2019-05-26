@@ -26,23 +26,14 @@
                         >
                             {{ $t('input.email') }}
                         </label>
-                        <input
-                            name="email"
-                            v-model="form.email"
-                            :class="{ 'border-red': form.errors.has('email') }"
-                            class="bg-blue-100 placeholder:text-gray-900 appearance-none border border-blue-200 rounded w-full py-3 px-3 mt-2 focus:outline-none"
+                        <BaseInput
                             id="email"
+                            name="email"
+                            :form="form"
+                            v-model="form.email"
                             v-validate="'required|email'"
-                            type="text"
                             :placeholder="$t('input.email')"
-                            @keydown="form.resetErrors()"
                         />
-                        <div
-                            class="text-red fade-enter-active mt-1 text-xs"
-                            v-show="form.errors.has('email')"
-                        >
-                            {{ form.errors.get('email') }}
-                        </div>
                     </div>
                     <div class="mb-4">
                         <button
@@ -76,12 +67,14 @@
 </template>
 
 <script>
-import Auth from '../Auth.vue';
+import Auth from '../Auth';
+import BaseInput from '@/core/components/BaseInput';
 
 export default {
     name: 'login',
     components: {
-        Auth
+        Auth,
+        BaseInput
     },
     data() {
         return {
