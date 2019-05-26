@@ -42,20 +42,12 @@
                         />
                     </div>
                     <div class="mb-4">
-                        <button
-                            class="w-full bg-blue-700 hover:bg-blue-500 text-white font-bold py-4 px-4 rounded focus:outline-none"
-                            type="button"
-                            @click="register"
-                            :disabled="form.running"
-                        >
-                            <span v-if="form.running" class="opacity-75">
-                                {{ $t('button_in_process.register') }}
-                            </span>
-
-                            <span v-else>
-                                {{ $t('button.register') }}
-                            </span>
-                        </button>
+                        <BaseButton
+                            :form="form"
+                            @click.native="register"
+                            :process="$t('button_in_process.register')"
+                            :button="$t('button.register')"
+                        />
                     </div>
                 </form>
                 <p class="text-center mt-6 text-gray-500">
@@ -72,12 +64,14 @@
 <script>
 import Auth from '../Auth.vue';
 import BaseInput from '@/core/components/BaseInput';
+import BaseButton from '@/core/components/BaseButton';
 
 export default {
     name: 'register',
     components: {
         Auth,
-        BaseInput
+        BaseInput,
+        BaseButton
     },
     data() {
         return {

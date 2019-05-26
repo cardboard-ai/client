@@ -36,20 +36,12 @@
                         />
                     </div>
                     <div class="mb-4">
-                        <button
-                            class="w-full bg-blue-700 hover:bg-blue-500 text-white font-bold py-4 px-4 rounded focus:outline-none"
-                            type="button"
-                            @click="login"
-                            :disabled="form.running"
-                        >
-                            <span v-if="form.running" class="opacity-75">
-                                {{ $t('button_in_process.login') }}
-                            </span>
-
-                            <span v-else>
-                                {{ $t('button.login') }}
-                            </span>
-                        </button>
+                        <BaseButton
+                            :form="form"
+                            @click.native="login"
+                            :process="$t('button_in_process.login')"
+                            :button="$t('button.login')"
+                        />
                     </div>
                 </form>
                 <p class="text-center mt-6 text-gray-500">
@@ -69,12 +61,14 @@
 <script>
 import Auth from '../Auth';
 import BaseInput from '@/core/components/BaseInput';
+import BaseButton from '@/core/components/BaseButton';
 
 export default {
     name: 'login',
     components: {
         Auth,
-        BaseInput
+        BaseInput,
+        BaseButton
     },
     data() {
         return {
