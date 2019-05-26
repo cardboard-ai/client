@@ -5,12 +5,13 @@ module.exports = {
     },
     extends: ['plugin:vue/essential', '@vue/prettier'],
     rules: {
+        'prettier/prettier': false,
         'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
         'vue/script-indent': 'off',
         'vue/html-indent': 'off',
         'vue/html-closing-bracket-newline': 'off',
-        'vue/multiline-html-element-content-newline': 'off'
+        'vue/multiline-html-element-content-newline': 'off',
     },
     parserOptions: {
         parser: 'babel-eslint'
