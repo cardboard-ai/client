@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import { Validator } from 'vee-validate';
 import nl from 'vee-validate/dist/locale/nl';
 
 Vue.use(VueI18n);
@@ -24,8 +23,9 @@ function loadTranslations() {
     return translations;
 }
 
+var user = JSON.parse(localStorage.getItem('user'));
 var i18n = new VueI18n({
-    locale: JSON.parse(localStorage.getItem('user')).locale || 'en',
+    locale: user ? user.locale : 'en',
     fallbackLocale: 'en',
     silentTranslationWarn: true,
     messages: loadTranslations()

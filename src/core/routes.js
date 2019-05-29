@@ -1,5 +1,5 @@
-import Login from '../modules/Auth/views/Login.vue';
-import Register from '../modules/Auth/views/Register.vue';
+import Login from '../modules/Auth/Pages/Login.vue';
+import Register from '../modules/Auth/Pages/Register.vue';
 import Authenticate from './middleware/authenticate';
 
 export default [

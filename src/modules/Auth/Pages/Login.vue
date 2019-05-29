@@ -59,7 +59,7 @@
 </template>
 
 <script>
-import Auth from '../Auth';
+import Auth from '@/core/layouts/Auth';
 import BaseInput from '@/core/components/BaseInput';
 import BaseButton from '@/core/components/BaseButton';
 

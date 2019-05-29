@@ -28,7 +28,7 @@
                             :placeholder="$t('input.full_name')"
                         />
                     </div>
-                    <div class="mb-8">
+                    <div class="mb-6">
                         <label class="uppercase text-gray-500 font-bold text-xs tracking-wider" for="email">
                             {{ $t('input.email') }}
                         </label>
@@ -40,6 +40,12 @@
                             v-validate="'required|email'"
                             :placeholder="$t('input.email')"
                         />
+                    </div>
+                    <div class="mb-6">
+                        <label class="text-gray-500">
+                            <input class="mr-2 leading-tight" type="checkbox">
+                            <span>I agree to the <span class="text-gray-700">terms and conditions</span></span>
+                        </label>
                     </div>
                     <div class="mb-4">
                         <BaseButton
@@ -62,7 +68,7 @@
 </template>
 
 <script>
-import Auth from '../Auth.vue';
+import Auth from '@/core/layouts/Auth';
 import BaseInput from '@/core/components/BaseInput';
 import BaseButton from '@/core/components/BaseButton';
 
