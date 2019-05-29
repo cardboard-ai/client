@@ -7,6 +7,7 @@ window.Form = function(data, component) {
     /**
      * Initialize the form error class.
      */
+    // eslint-disable-next-line
     this.errors = new FormErrors();
 
     this.running = false;
@@ -67,9 +68,12 @@ window.Form = function(data, component) {
             var formData = _.omit(this, ['errors', 'running', 'successful']);
 
             // Execute the Axios request and process the backend validation
+            // eslint-disable-next-line
             axios({ method: method, url: url, data: formData })
                 .then(response => {
                     stopProcess();
+
+                    return response;
                 })
                 .catch(err => {
                     if (err.response.status === 401) {

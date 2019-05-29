@@ -29,6 +29,7 @@ window.FormErrors = function() {
     this.set = function(errors) {
         if (errors instanceof ErrorBag) {
             var obj = [];
+            // eslint-disable-next-line
             var errors = _.mapObject(errors.items, function(val) {
                 obj[val['field']] = [val['msg']];
 
