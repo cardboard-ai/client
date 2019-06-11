@@ -1,5 +1,5 @@
 <template>
-    <auth>
+    <Auth>
         <div class="flex flex-col">
             <div>
                 <h1 class="text-gray-900 text-xl font-semibold">{{ $t('app') }}</h1>
@@ -55,7 +55,7 @@
                 </p>
             </div>
         </div>
-    </auth>
+    </Auth>
 </template>
 
 <script>

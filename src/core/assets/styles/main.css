@@ -4,5 +4,16 @@
 
 @tailwind utilities;
 
+.nav-item {
+    border-left-width: 3px;
+    border-right-width: 3px;
+    @apply border-gray-400 text-gray-500 p-4 px-6;
+}
+
+.nav-item:hover {
+    @apply bg-blue-200 text-blue-700 border-blue-700;
+    border-right-color: transparent;
+}
+
 @import "fonts.css";
 @import "auth.css";

@@ -67,5 +67,8 @@ module.exports = {
         fontFamily: {
             'default': ['Rubik', 'sans-serif'],
         }
+    },
+    variants: {
+        opacity: ['hover']
     }
 };

@@ -1,5 +1,5 @@
 <template>
-    <auth>
+    <Auth>
         <div class="flex flex-col">
             <div>
                 <router-link to="/">
@@ -64,7 +64,7 @@
                 </p>
             </div>
         </div>
-    </auth>
+    </Auth>
 </template>
 
 <script>
