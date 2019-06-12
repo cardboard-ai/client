@@ -6,12 +6,32 @@
                     <h1 class="text-gray-900 text-xl font-semibold">{{ $t('app') }}</h1>
                 </router-link>
             </div>
-            <div class="mt-32">
+            <div class="mt-20">
                 <h1 class="text-gray-900 text-4xl font-hairline">{{ $t('heading.register') }}</h1>
                 <p class="leading-loose text-gray-700 mb-8">
                     {{ $t('leading.register') }}
                 </p>
                 <form v-on:submit.prevent="register">
+                    <div class="mb-8 flex -mx-4">
+                        <div
+                            class="w-1/2 mx-4 p-4 cursor-pointer border border-blue-200 rounded text-center"
+                            :class="{ 'border-blue-700 shadow' : newUser === true }"
+                            v-on:click="newUser = true"
+                        >
+                            <div :class="{ 'hidden' : newUser === false }" class="w-5 h-5 bg-blue-700 rounded-full text-white float-right -mt-6 -mr-6">✔</div>
+                            <p class="text-gray-900 mt-4 font-bold">Create</p>
+                            <p class="text-gray-700">Make a new workspace</p>
+                        </div>
+                        <div
+                            class="w-1/2 mx-4 p-4 cursor-pointer border border-blue-200 rounded text-center"
+                            :class="{ 'border-blue-700 shadow' : newUser === false }"
+                            v-on:click="newUser = false"
+                        >
+                            <div :class="{ 'hidden' : newUser === true }" class="w-5 h-5 bg-blue-700 rounded-full text-white float-right -mt-6 -mr-6">✔</div>
+                            <p class="text-gray-900 mt-4 font-bold">Locate</p>
+                            <p class="text-gray-700">Join an existing workspace</p>
+                        </div>
+                    </div>
                     <div class="mb-8">
                         <label
                             class="uppercase text-gray-500 font-bold text-xs tracking-wider"
@@ -87,7 +107,8 @@ export default {
                     email: ''
                 },
                 this
-            )
+            ),
+            newUser: true
         };
     },
     methods: {

@@ -4,7 +4,7 @@
             <div>
                 <h1 class="text-gray-900 text-xl font-semibold">{{ $t('app') }}</h1>
             </div>
-            <div class="mt-32">
+            <div class="mt-20">
                 <h1 class="text-gray-900 text-4xl font-hairline">
                     {{ $t('heading.login') }}
                 </h1>

@@ -1,6 +1,6 @@
 <template>
     <button
-        class="w-full bg-blue-700 hover:bg-blue-500 text-white font-bold py-4 px-4 rounded focus:outline-none"
+        class="w-full bg-blue-700 hover:bg-blue-500 text-white font-bold p-3 rounded focus:outline-none"
         type="button"
         :disabled="form.running"
     >
