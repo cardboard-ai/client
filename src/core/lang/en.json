@@ -3,12 +3,14 @@
     "heading": {
         "login": "Sign in to Cardboard",
         "register": "Get started for free",
-        "create_workspace": "Create a workspace"
+        "create_workspace": "Create a workspace",
+        "connect_github": "Connect with GitHub"
     },
     "leading": {
         "login": "Please enter your credentials to proceed.",
         "register": "No creditcard needed.",
-        "create_workspace": "What’s the name of your company or team?"
+        "create_workspace": "What’s the name of your company or team?",
+        "connect_github": "Integrations make the magic happen"
     },
     "label": {
         "no_account": "Don't have an account yet?",
@@ -23,7 +25,14 @@
         "locate": "Locate",
         "locate_caption": "Join an existing workspace",
         "create": "Create",
-        "create_caption": "Make a new workspace"
+        "create_caption": "Make a new workspace",
+        "github": "GitHub",
+        "connect_with_oauth": "Connect account with OAuth",
+        "skip": "Skip for now",
+        "privacy_terms": "Privacy terms"
+    },
+    "caption": {
+        "github_privacy_explanation": "Explanation for which you need to connect with GitHub and what we use your data for and a reference to our"
     },
     "input": {
         "full_name": "Full name",
