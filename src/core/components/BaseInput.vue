@@ -8,7 +8,7 @@
             @input="handleInput"
             @keydown="form.resetErrors()"
         />
-        <div class="text-red mt-1 text-xs" v-show="form.errors.has(this.name)">
+        <div class="text-red mt-1 mb-0 text-xs" v-show="form.errors.has(this.name)">
             {{ form.errors.get(this.name) }}
         </div>
     </div>

@@ -2,28 +2,42 @@
     "app": "Cardboard",
     "heading": {
         "login": "Sign in to Cardboard",
-        "register": "Get started for free"
+        "register": "Get started for free",
+        "create_workspace": "Create a workspace"
     },
     "leading": {
         "login": "Please enter your credentials to proceed.",
-        "register": "No creditcard needed."
+        "register": "No creditcard needed.",
+        "create_workspace": "What’s the name of your company or team?"
     },
     "label": {
         "no_account": "Don't have an account yet?",
         "register": "Sign up",
         "already_account": "Already have an account?",
-        "logged_in": "We have e-mailed you a magic link! By clicking on this link you are logged in immediately."
+        "logged_in": "We have e-mailed you a magic link! By clicking on this link you are logged in immediately.",
+        "i_agree_to": "I agree to the",
+        "terms_and_conditions": "terms and conditions",
+        "want_to": "Want to",
+        "join_workspace": "Join a workspace",
+        "question_mark": "?",
+        "locate": "Locate",
+        "locate_caption": "Join an existing workspace",
+        "create": "Create",
+        "create_caption": "Make a new workspace"
     },
     "input": {
         "full_name": "Full name",
-        "email": "Email address"
+        "email": "Email address",
+        "workspace_name": "Workspace name"
     },
     "button": {
         "login": "Sign in",
-        "register": "Create account"
+        "register": "Create account",
+        "create_workspace": "Create workspace"
     },
     "button_in_process": {
         "login": "Signing in",
-        "register": "Creating an account"
+        "register": "Creating an account",
+        "create_workspace": "Creating workspace"
     }
 }
