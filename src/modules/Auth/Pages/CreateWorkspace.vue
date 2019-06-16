@@ -15,13 +15,6 @@
                         {{ $t('leading.create_workspace') }}
                     </p>
                 </div>
-                <div
-                    v-if="form.successful"
-                    class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
-                    role="alert"
-                >
-                    <span class="block sm:inline">{{ $t('label.logged_in') }}</span>
-                </div>
                 <form v-on:submit.prevent="create">
                     <div class="mb-6">
                         <label
