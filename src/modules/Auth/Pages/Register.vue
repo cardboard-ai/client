@@ -131,15 +131,11 @@ export default {
     },
     methods: {
         register: function() {
-            this.form.open('post', 'register');
-
-            if (this.form.successful === true) {
-                if (this.newUser === true) {
-                    this.$router.push({ name: 'create-workspace' });
-                } else {
-                    console.log('Not ready!');
-                }
-            }
+            this.form.open(
+                'post',
+                'register',
+                {'routeName':'create-workspace'}
+            );
         }
     }
 };

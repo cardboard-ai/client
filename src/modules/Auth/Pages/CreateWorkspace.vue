@@ -74,7 +74,7 @@ export default {
     },
     methods: {
         create() {
-            this.form.open('post', 'workspaces');
+            this.form.open('post', 'workspaces', {'routeName':'workspace-style'});
         }
     }
 };
