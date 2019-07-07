@@ -1,6 +1,7 @@
 import Login from '@/modules/Auth/Pages/Login.vue';
 import Register from '@/modules/Auth/Pages/Register.vue';
 import CreateWorkspace from '@/modules/Auth/Pages/CreateWorkspace.vue';
+import WorkspaceStyle from '@/modules/Auth/Pages/WorkspaceStyle.vue';
 import ConnectGitHub from '@/modules/Auth/Pages/ConnectGitHub.vue';
 import Dashboard from '@/modules/Dashboard/Pages/Dashboard.vue';
 import Authenticate from '@/core/middleware/authenticate';
@@ -20,6 +21,14 @@ export default [
         path: '/onboarding/create-workspace',
         name: 'create-workspace',
         component: CreateWorkspace,
+        meta: {
+            middleware: [Authenticate]
+        }
+    },
+    {
+        path: '/onboarding/workspace-style',
+        name: 'workspace-style',
+        component: WorkspaceStyle,
         meta: {
             middleware: [Authenticate]
         }
