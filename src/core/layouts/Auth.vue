@@ -8,3 +8,24 @@
         <div class="flex w-1/4 flex-1 min-h-screen bg-img-auth bg-cover bg-no-repeat"></div>
     </div>
 </template>
+
+<script>
+export default {
+    mounted() {
+        var self = this;
+        axios.get('http://127.0.0.1:8000/api/user')
+            .then(function(response) {
+                if (response.data instanceof Object) {
+                    localStorage.setItem('user', JSON.stringify(response.data));
+
+                    if (['login', 'register'].indexOf(self.$router.currentRoute.name) !== -1) {
+                        self.$router.push({ name: 'dashboard' });
+                    }
+                }
+            })
+            .catch(function(error) {
+                //
+            });
+    }
+}
+</script>
