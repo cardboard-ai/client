@@ -50,7 +50,7 @@ window.Form = function(data, component) {
     /**
      * Open the form and specify it's HTTP method and URI.
      */
-    this.open = function(method, uri, formName = null) {
+    this.open = function(method, uri, actions, formName = null,) {
         component.$validator.validate(formName).then(result => {
             startProcess();
 
@@ -73,7 +73,7 @@ window.Form = function(data, component) {
                 .then(response => {
                     stopProcess();
 
-                    return response;
+                    determineAction(response, actions);
                 })
                 .catch(err => {
                     if (err.response.status === 401) {
@@ -84,4 +84,17 @@ window.Form = function(data, component) {
                 });
         });
     };
+
+    /**
+     * Determine the next action after the XHR request is successful.
+     */
+    function determineAction(response, actions) {
+        switch (true) {
+            case _.has(actions, 'routeName'):
+                component.$router.push({ name: actions['routeName'] });
+                break;
+            default:
+                return response;
+        }
+    }
 };
