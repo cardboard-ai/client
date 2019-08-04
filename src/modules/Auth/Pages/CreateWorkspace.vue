@@ -69,9 +69,29 @@ export default {
         };
     },
     methods: {
+        /**
+         * Skip this setup when the user has already a workspace.
+         */
+        skipSetup() {
+            axios.get('workspaces')
+                .then((response) => {
+                    var workspaces = response.data;
+                    if (Array.isArray(workspaces) && workspaces.length > 0) {
+                        this.$router.push({ name: 'workspace-style' })
+                    }
+                });
+        },
+        /**
+         * Create the workspace and redirect to the workspace style setup page.
+         */
         create() {
             this.form.open('post', 'workspaces', {'routeName':'workspace-style'});
         }
+    },
+    mounted() {
+        localStorage.setItem('onboarding-create-flow', 'create-workspace');
+
+        this.skipSetup();
     }
 };
 </script>
