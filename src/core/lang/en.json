@@ -7,7 +7,8 @@
         "workspace_style": "Bring your style",
         "connect_github": "Connect with GitHub",
         "connect_jira": "Connecting Jira",
-        "add_project": "Add a project"
+        "add_project": "Add a project",
+        "issue_logic": "Issue logic"
     },
     "leading": {
         "login": "Please enter your credentials to proceed.",
@@ -16,7 +17,8 @@
         "workspace_style": "Almost ready for liftoff! 🚀",
         "connect_github": "Integrations make the magic happen",
         "connect_jira": "Integrations make the magic happen",
-        "add_project": "Where are you working on?"
+        "add_project": "Where are you working on?",
+        "issue_logic": "Automate your taskboard"
     },
     "label": {
         "no_account": "Don't have an account yet?",
@@ -37,7 +39,10 @@
         "skip": "Skip for now",
         "privacy_terms": "Privacy terms",
         "upload_workspace_logo": "Upload a logo for your workspace",
-        "connect_jira_later": "Connect to Jira later?"
+        "connect_jira_later": "Connect to Jira later?",
+        "need_some": "Need some",
+        "help": "Help",
+        "with_the_setup": "With the setup?"
     },
     "caption": {
         "github_privacy_explanation": "Explanation for which you need to connect with GitHub and what we use your data for and a reference to our"
@@ -48,18 +53,23 @@
         "workspace_name": "Workspace name",
         "username": "Username",
         "api_token": "API token",
-        "jira_url": "Jira URL"
+        "jira_url": "Jira URL",
+        "when_there_is_a_merge": "When there is a merge",
+        "when_there_is_a_push": "When there is a push",
+        "opend_merge_request": "Opend a merge request"
     },
     "button": {
         "login": "Sign in",
         "register": "Create account",
         "create_workspace": "Create workspace",
-        "connect": "Connect"
+        "connect": "Connect",
+        "start_automating": "Start automating"
     },
     "button_in_process": {
         "login": "Signing in",
         "register": "Creating an account",
         "create_workspace": "Creating workspace",
-        "connect": "Connecting"
+        "connect": "Connecting",
+        "start_automating": "Starting with automating"
     }
 }

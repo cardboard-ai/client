@@ -6,6 +6,7 @@ import WorkspaceStyle from '@/modules/Auth/Pages/WorkspaceStyle.vue';
 import ConnectGitHub from '@/modules/Auth/Pages/ConnectGitHub.vue';
 import ConnectJira from '@/modules/Auth/Pages/ConnectJira.vue';
 import AddRepository from '@/modules/Auth/Pages/AddRepository.vue';
+import IssueLogic from '@/modules/Auth/Pages/IssueLogic.vue';
 import Dashboard from '@/modules/Dashboard/Pages/Dashboard.vue';
 import Authenticate from '@/core/middleware/authenticate';
 
@@ -60,6 +61,14 @@ export default [
                 path: 'add-repository',
                 name: 'add-repository',
                 component: AddRepository,
+                meta: {
+                    middleware: [Authenticate]
+                }
+            },
+            {
+                path: 'issue-logic',
+                name: 'issue-logic',
+                component: IssueLogic,
                 meta: {
                     middleware: [Authenticate]
                 }
