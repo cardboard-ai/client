@@ -106,6 +106,8 @@ export default {
             axios.get('workspaces')
                 .then((response) => {
                     this.workspace = last(toArray(response.data));
+
+                    this.skipSetup();
                 })
                 .catch(function (error) {
                     // Do nothing
