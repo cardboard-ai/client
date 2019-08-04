@@ -1,3 +1,4 @@
+import i18n from '@/core/locales';
 import Login from '@/modules/Auth/Pages/Login.vue';
 import Register from '@/modules/Auth/Pages/Register.vue';
 import Auth from '@/core/layouts/Auth';
@@ -30,6 +31,7 @@ export default [
                 name: 'create-workspace',
                 component: CreateWorkspace,
                 meta: {
+                    title: i18n.t('title.create_workspace'),
                     middleware: [Authenticate]
                 }
             },
@@ -38,6 +40,7 @@ export default [
                 name: 'workspace-style',
                 component: WorkspaceStyle,
                 meta: {
+                    title: i18n.t('title.workspace_style'),
                     middleware: [Authenticate]
                 }
             },
@@ -46,6 +49,7 @@ export default [
                 name: 'connect-github',
                 component: ConnectGitHub,
                 meta: {
+                    title: i18n.t('title.connect_github'),
                     middleware: [Authenticate]
                 }
             },
@@ -54,6 +58,7 @@ export default [
                 name: 'connect-jira',
                 component: ConnectJira,
                 meta: {
+                    title: i18n.t('title.connect_jira'),
                     middleware: [Authenticate]
                 }
             },
@@ -62,6 +67,7 @@ export default [
                 name: 'select-repository',
                 component: SelectRepository,
                 meta: {
+                    title: i18n.t('title.select_repository'),
                     middleware: [Authenticate]
                 }
             },
@@ -70,6 +76,7 @@ export default [
                 name: 'issue-logic',
                 component: IssueLogic,
                 meta: {
+                    title: i18n.t('title.issue_logic'),
                     middleware: [Authenticate]
                 }
             },
@@ -80,6 +87,7 @@ export default [
         name: 'dashboard',
         component: Dashboard,
         meta: {
+            title: i18n.t('title.dashboard'),
             middleware: [Authenticate]
         }
     }
