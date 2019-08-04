@@ -5,14 +5,18 @@
         "register": "Get started for free",
         "create_workspace": "Create a workspace",
         "workspace_style": "Bring your style",
-        "connect_github": "Connect with GitHub"
+        "connect_github": "Connect with GitHub",
+        "connect_jira": "Connecting Jira",
+        "add_project": "Add a project"
     },
     "leading": {
         "login": "Please enter your credentials to proceed.",
         "register": "No creditcard needed.",
         "create_workspace": "What’s the name of your company or team?",
         "workspace_style": "Almost ready for liftoff! 🚀",
-        "connect_github": "Integrations make the magic happen"
+        "connect_github": "Integrations make the magic happen",
+        "connect_jira": "Integrations make the magic happen",
+        "add_project": "Where are you working on?"
     },
     "label": {
         "no_account": "Don't have an account yet?",
@@ -32,7 +36,8 @@
         "connect_with_oauth": "Connect account with OAuth",
         "skip": "Skip for now",
         "privacy_terms": "Privacy terms",
-        "upload_workspace_logo": "Upload a logo for your workspace"
+        "upload_workspace_logo": "Upload a logo for your workspace",
+        "connect_jira_later": "Connect to Jira later?"
     },
     "caption": {
         "github_privacy_explanation": "Explanation for which you need to connect with GitHub and what we use your data for and a reference to our"
@@ -40,16 +45,21 @@
     "input": {
         "full_name": "Full name",
         "email": "Email address",
-        "workspace_name": "Workspace name"
+        "workspace_name": "Workspace name",
+        "username": "Username",
+        "api_token": "API token",
+        "jira_url": "Jira URL"
     },
     "button": {
         "login": "Sign in",
         "register": "Create account",
-        "create_workspace": "Create workspace"
+        "create_workspace": "Create workspace",
+        "connect": "Connect"
     },
     "button_in_process": {
         "login": "Signing in",
         "register": "Creating an account",
-        "create_workspace": "Creating workspace"
+        "create_workspace": "Creating workspace",
+        "connect": "Connecting"
     }
 }
