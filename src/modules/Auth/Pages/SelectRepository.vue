@@ -8,17 +8,17 @@
         <div class="mt-32">
             <div class="text-center">
                 <h1 class="text-gray-900 text-4xl font-hairline">
-                    {{ $t('heading.add_repository') }}
+                    {{ $t('heading.select_repository') }}
                 </h1>
                 <p class="leading-loose text-gray-700 mb-4">
-                    {{ $t('leading.add_repository') }}
+                    {{ $t('leading.select_repository') }}
                 </p>
             </div>
             <div class="mb-6">
-                <input class="text-gray-900 bg-blue-100 placeholder:text-gray-500 appearance-none border border-blue-200 rounded w-full p-2 mt-2 focus:outline-none" placeholder="Search your Github projects" v-model="search">
+                <input class="text-gray-900 bg-blue-100 placeholder:text-gray-500 appearance-none border border-blue-200 rounded w-full p-2 mt-2 focus:outline-none" :placeholder="$t('label.search_repositories')" v-model="search">
             </div>
             <div v-for="repository in filteredRepositories.slice(0, 4)">
-                <div class="flex mb-6 py-8 px-12 m-2 shadow-md border rounded">
+                <div class="flex mb-6 py-8 px-12 shadow-md border rounded">
                     <div>
                         <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#2e5bff" class="m-auto">
                             <circle opacity=".2" cx="24" cy="24" r="24"/>
@@ -46,7 +46,7 @@ import BaseButton from '@/core/components/BaseButton';
 import { last, toArray } from 'underscore';
 
 export default {
-    name: 'add-repository',
+    name: 'select-repository',
     components: {
         BaseInput,
         BaseButton

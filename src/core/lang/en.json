@@ -7,7 +7,7 @@
         "workspace_style": "Bring your style",
         "connect_github": "Connect with GitHub",
         "connect_jira": "Connecting Jira",
-        "add_repository": "Add a repository",
+        "select_repository": "Select a repository",
         "issue_logic": "Issue logic"
     },
     "leading": {
@@ -17,7 +17,7 @@
         "workspace_style": "Almost ready for liftoff! 🚀",
         "connect_github": "Integrations make the magic happen",
         "connect_jira": "Integrations make the magic happen",
-        "add_repository": "Where are you working on?",
+        "select_repository": "Where are you working on?",
         "issue_logic": "Automate your taskboard"
     },
     "label": {
@@ -42,7 +42,8 @@
         "connect_jira_later": "Connect to Jira later?",
         "need_some": "Need some",
         "help": "Help",
-        "with_the_setup": "With the setup?"
+        "with_the_setup": "With the setup?",
+        "search_repositories": "Search your Github repositories"
     },
     "caption": {
         "github_privacy_explanation": "Explanation for which you need to connect with GitHub and what we use your data for and a reference to our"

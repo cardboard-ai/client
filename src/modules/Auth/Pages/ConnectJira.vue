@@ -66,7 +66,7 @@
             </form>
             <p class="text-center mt-6 text-gray-500">
                 {{ $t('label.connect_jira_later') }}
-                <router-link class="text-blue-700 no-underline" :to="{ name: 'add-repository' }">
+                <router-link class="text-blue-700 no-underline" :to="{ name: 'select-repository' }">
                     {{ $t('label.skip') }}
                 </router-link>
             </p>
@@ -119,7 +119,7 @@ export default {
         skipSetup() {
             axios.get('workspace/' + this.workspace.id + '/jira/projects')
                 .then((response) => {
-                    this.$router.push({ name: 'add-repository' })
+                    this.$router.push({ name: 'select-repository' })
                 });
         },
         /**
