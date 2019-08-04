@@ -4,7 +4,7 @@
             v-bind="$attrs"
             v-model="text"
             :class="{ 'border-red': form.errors.has(this.name) }"
-            class="text-gray-900 bg-blue-100 placeholder:text-gray-500 appearance-none border border-blue-200 rounded w-full p-2 mt-2 focus:outline-none"
+            class="text-gray-900 bg-blue-100 placeholder:text-gray-500 appearance-none border border-blue-200 rounded w-full p-2 mt-2 focus:border-blue-700 focus:outline-none"
             @input="handleInput"
             @keydown="form.resetErrors()"
         />
