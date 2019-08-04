@@ -98,6 +98,9 @@ export default {
         };
     },
     methods: {
+        /**
+         * Get the last created workspace from the user.
+         */
         getWorkspace() {
             var self = this;
             axios.get(process.env.VUE_APP_ROOT_API + 'workspaces')
@@ -108,7 +111,22 @@ export default {
                     // Do nothing
                 })
         },
+        /**
+         * Skip this setup when the user has a Jira social account.
+         */
+        skipSetup() {
+            axios.get('workspace/' + this.workspace.id + '/jira/projects')
+                .then((response) => {
+                    // To-do: redirect to new flow page
+                    // this.$router.push({ name: 'issue-logic' })
+                });
+        },
+        /**
+         * Create the Jira social account link.
+         */
         connect: function() {
+            localStorage.setItem('onboarding-create-flow', 'connect-jira');
+
             this.form.open(
                 'post',
                 'workspace/' + this.workspace.id + '/jira/login',
@@ -117,6 +135,8 @@ export default {
         }
     },
     mounted() {
+        localStorage.setItem('onboarding-create-flow', 'connect-jira');
+
         this.getWorkspace();
     }
 };
