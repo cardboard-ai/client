@@ -8,10 +8,10 @@
         <div class="mt-32">
             <div class="text-center">
                 <h1 class="text-gray-900 text-4xl font-hairline">
-                    {{ $t('heading.add_project') }}
+                    {{ $t('heading.add_repository') }}
                 </h1>
                 <p class="leading-loose text-gray-700 mb-4">
-                    {{ $t('leading.add_project') }}
+                    {{ $t('leading.add_repository') }}
                 </p>
             </div>
             <div class="mb-6">

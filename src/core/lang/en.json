@@ -7,7 +7,7 @@
         "workspace_style": "Bring your style",
         "connect_github": "Connect with GitHub",
         "connect_jira": "Connecting Jira",
-        "add_project": "Add a project",
+        "add_repository": "Add a repository",
         "issue_logic": "Issue logic"
     },
     "leading": {
@@ -17,7 +17,7 @@
         "workspace_style": "Almost ready for liftoff! 🚀",
         "connect_github": "Integrations make the magic happen",
         "connect_jira": "Integrations make the magic happen",
-        "add_project": "Where are you working on?",
+        "add_repository": "Where are you working on?",
         "issue_logic": "Automate your taskboard"
     },
     "label": {
