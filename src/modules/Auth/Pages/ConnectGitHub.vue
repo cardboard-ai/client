@@ -46,23 +46,42 @@ export default {
         };
     },
     methods: {
+        /**
+         * Get the last created workspace from the user.
+         */
         getWorkspace() {
-            var self = this;
-            axios.get(process.env.VUE_APP_ROOT_API + 'workspaces')
-                .then(function (response) {
-                    self.workspace = _.last(_.toArray(response.data));
+            axios.get('workspaces')
+                .then((response) => {
+                    this.workspace = _.last(_.toArray(response.data));
+
+                    this.skipSetup();
                 })
                 .catch(function (error) {
                     // Do nothing
                 })
         },
+        /**
+         * Skip this setup when the user has a GitHub social account.
+         */
+        skipSetup() {
+            axios.get('workspace/' + this.workspace.id + '/github/repositories')
+                .then((response) => {
+                    this.$router.push({ name: 'connect-jira' })
+                });
+        },
+        /**
+         * Redirect the user to the the GitHub oAuth page.
+         */
         redirectToGitHub() {
+            localStorage.setItem('onboarding-create-flow', 'connect-github-clicked');
             var url = process.env.VUE_APP_ROOT_API + 'workspace/' + this.workspace.id + '/github/login';
 
-            window.open(url, '_blank');
+            window.open(url, '_self');
         }
     },
     mounted() {
+        localStorage.setItem('onboarding-create-flow', 'connect-github');
+
         this.getWorkspace();
     }
 };
