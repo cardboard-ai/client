@@ -51,7 +51,7 @@
                         name="base_uri"
                         :form="form"
                         v-model="form.base_uri"
-                        v-validate="'required'"
+                        v-validate="'required|url'"
                         :placeholder="$t('input.jira_url')"
                     />
                 </div>
@@ -66,7 +66,7 @@
             </form>
             <p class="text-center mt-6 text-gray-500">
                 {{ $t('label.connect_jira_later') }}
-                <router-link class="text-blue-700 no-underline" to="/dashboard">
+                <router-link class="text-blue-700 no-underline" :to="{ name:'add-repository' }">
                     {{ $t('label.skip') }}
                 </router-link>
             </p>

@@ -36,7 +36,6 @@ window.Form = function(data, component) {
     this.resetErrors = function() {
         form.errors.forget();
         form.running = false;
-        form.successful = false;
     };
 
     /**
