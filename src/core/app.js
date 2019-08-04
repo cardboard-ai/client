@@ -1,12 +1,10 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
 import VeeValidate, { Validator } from 'vee-validate';
 import App from './App.vue';
 import i18n from './locales';
 import router from './router/index';
 import './registerServiceWorker';
 
-Vue.use(Vuex);
 Vue.use(VeeValidate);
 
 if (['en', 'nl'].indexOf(i18n.locale) !== -1) {
@@ -23,6 +21,17 @@ Vue.config.productionTip = true;
 window.axios = require('axios');
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 window.axios.defaults.withCredentials = true;
+window.axios.defaults.baseURL = process.env.VUE_APP_ROOT_API;
+
+window.axios.interceptors.response.use(function (response) {
+    return response;
+}, function (error) {
+    if (error.response.status === 401) {
+        router.push({ name: 'login' });
+    }
+
+    return Promise.reject(error);
+});
 
 window._ = require('underscore');
 
