@@ -13,19 +13,15 @@
 <script>
 export default {
     mounted() {
-        var self = this;
         axios.get('http://127.0.0.1:8000/api/user')
-            .then(function(response) {
+            .then((response) => {
                 if (response.data instanceof Object) {
                     localStorage.setItem('user', JSON.stringify(response.data));
 
-                    if (['login', 'register'].indexOf(self.$router.currentRoute.name) !== -1) {
-                        self.$router.push({ name: 'dashboard' });
+                    if (['login', 'register'].indexOf(this.$router.currentRoute.name) !== -1) {
+                        this.$router.push({ name: 'dashboard' });
                     }
                 }
-            })
-            .catch(function(error) {
-                //
             });
     }
 }

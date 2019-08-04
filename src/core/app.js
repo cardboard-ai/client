@@ -33,8 +33,6 @@ window.axios.interceptors.response.use(function (response) {
     return Promise.reject(error);
 });
 
-window._ = require('underscore');
-
 window.user = JSON.parse(localStorage.getItem('user'));
 
 // Helpers

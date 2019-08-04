@@ -33,6 +33,8 @@
 </template>
 
 <script>
+import { last, toArray } from 'underscore';
+
 export default {
     name: 'workspace-style',
     data() {
@@ -42,14 +44,10 @@ export default {
     },
     methods: {
         getWorkspace() {
-            var self = this;
             axios.get(process.env.VUE_APP_ROOT_API + 'workspaces')
-                .then(function (response) {
-                    self.workspace = _.last(_.toArray(response.data));
-                })
-                .catch(function (error) {
-                    // handle error
-                })
+                .then((response) => {
+                    this.workspace = last(toArray(response.data));
+                });
         },
     },
     mounted() {

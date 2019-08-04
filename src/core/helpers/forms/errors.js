@@ -1,3 +1,4 @@
+import { indexOf, keys, mapObject } from 'underscore';
 import { ErrorBag } from 'vee-validate';
 
 /**
@@ -10,7 +11,7 @@ window.FormErrors = function() {
      * Determine whether the form has the specific error.
      */
     this.has = function(field) {
-        return _.indexOf(_.keys(this.errors), field) > -1;
+        return indexOf(keys(this.errors), field) > -1;
     };
 
     /**
@@ -30,7 +31,7 @@ window.FormErrors = function() {
         if (errors instanceof ErrorBag) {
             var obj = [];
             // eslint-disable-next-line
-            var errors = _.mapObject(errors.items, function(val) {
+            var errors = mapObject(errors.items, function(val) {
                 obj[val['field']] = [val['msg']];
 
                 return obj;

@@ -77,6 +77,7 @@
 <script>
 import BaseInput from '@/core/components/BaseInput';
 import BaseButton from '@/core/components/BaseButton';
+import { last, toArray } from 'underscore';
 
 export default {
     name: 'connect-jira',
@@ -102,10 +103,9 @@ export default {
          * Get the last created workspace from the user.
          */
         getWorkspace() {
-            var self = this;
-            axios.get(process.env.VUE_APP_ROOT_API + 'workspaces')
-                .then(function (response) {
-                    self.workspace = _.last(_.toArray(response.data));
+            axios.get('workspaces')
+                .then((response) => {
+                    this.workspace = last(toArray(response.data));
                 })
                 .catch(function (error) {
                     // Do nothing

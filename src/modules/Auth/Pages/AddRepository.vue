@@ -43,6 +43,7 @@
 <script>
 import BaseInput from '@/core/components/BaseInput';
 import BaseButton from '@/core/components/BaseButton';
+import { last, toArray } from 'underscore';
 
 export default {
     name: 'add-repository',
@@ -69,22 +70,16 @@ export default {
         getWorkspace() {
             axios.get(process.env.VUE_APP_ROOT_API + 'workspaces')
                 .then((response) => {
-                    this.workspace = _.last(_.toArray(response.data));
+                    this.workspace = last(toArray(response.data));
 
                     this.getAllRepositories(this.workspace.id);
-                })
-                .catch(function (error) {
-                    // Do nothing
-                })
+                });
         },
         getAllRepositories(workspaceId) {
             axios.get(process.env.VUE_APP_ROOT_API + 'workspace/' + workspaceId + '/github/repositories')
                 .then((response) => {
-                    this.allRepositories = _.toArray(response.data);
-                })
-                .catch(function (error) {
-                    // Do nothing
-                })
+                    this.allRepositories = toArray(response.data);
+                });
         }
     },
     mounted() {

@@ -1,3 +1,5 @@
+import { omit, has } from 'underscore';
+
 /**
  * Form helper class.
  */
@@ -61,7 +63,7 @@ window.Form = function(data, component) {
             }
 
             // Prepare the form data by removing default properties
-            var formData = _.omit(this, ['errors', 'running', 'successful']);
+            var formData = omit(this, ['errors', 'running', 'successful']);
 
             // Execute the Axios request and process the backend validation
             // eslint-disable-next-line
@@ -86,7 +88,7 @@ window.Form = function(data, component) {
      */
     function determineAction(response, actions) {
         switch (true) {
-            case _.has(actions, 'routeName'):
+            case has(actions, 'routeName'):
                 component.$router.push({ name: actions['routeName'] });
                 break;
             default:

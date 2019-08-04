@@ -37,6 +37,7 @@
 </template>
 
 <script>
+import { last, toArray } from 'underscore';
 
 export default {
     name: 'connect-github',
@@ -52,7 +53,7 @@ export default {
         getWorkspace() {
             axios.get('workspaces')
                 .then((response) => {
-                    this.workspace = _.last(_.toArray(response.data));
+                    this.workspace = last(toArray(response.data));
 
                     this.skipSetup();
                 })
