@@ -61,15 +61,12 @@ window.Form = function(data, component) {
                 return false;
             }
 
-            // Define the URL based on the environment base URL and given URI
-            var url = process.env.VUE_APP_ROOT_API + uri;
-
             // Prepare the form data by removing default properties
             var formData = _.omit(this, ['errors', 'running', 'successful']);
 
             // Execute the Axios request and process the backend validation
             // eslint-disable-next-line
-            axios({ method: method, url: url, data: formData })
+            axios({ method: method, url: uri, data: formData })
                 .then(response => {
                     stopProcess();
 
