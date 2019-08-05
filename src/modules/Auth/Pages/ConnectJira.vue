@@ -106,20 +106,6 @@ export default {
             axios.get('workspaces')
                 .then((response) => {
                     this.workspace = last(toArray(response.data));
-
-                    this.skipSetup();
-                })
-                .catch(function (error) {
-                    // Do nothing
-                })
-        },
-        /**
-         * Skip this setup when the user has a Jira social account.
-         */
-        skipSetup() {
-            axios.get('workspace/' + this.workspace.id + '/jira/projects')
-                .then((response) => {
-                    this.$router.push({ name: 'select-repository' })
                 });
         },
         /**

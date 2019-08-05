@@ -68,7 +68,7 @@ export default {
     },
     methods: {
         getWorkspace() {
-            axios.get(process.env.VUE_APP_ROOT_API + 'workspaces')
+            axios.get('workspaces')
                 .then((response) => {
                     this.workspace = last(toArray(response.data));
 
@@ -76,7 +76,7 @@ export default {
                 });
         },
         getAllRepositories(workspaceId) {
-            axios.get(process.env.VUE_APP_ROOT_API + 'workspace/' + workspaceId + '/github/repositories')
+            axios.get('workspace/' + workspaceId + '/github/repositories')
                 .then((response) => {
                     this.allRepositories = toArray(response.data);
                 });

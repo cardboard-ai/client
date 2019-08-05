@@ -54,20 +54,6 @@ export default {
             axios.get('workspaces')
                 .then((response) => {
                     this.workspace = last(toArray(response.data));
-
-                    this.skipSetup();
-                })
-                .catch(function (error) {
-                    // Do nothing
-                })
-        },
-        /**
-         * Skip this setup when the user has a GitHub social account.
-         */
-        skipSetup() {
-            axios.get('workspace/' + this.workspace.id + '/github/repositories')
-                .then((response) => {
-                    this.$router.push({ name: 'connect-jira' })
                 });
         },
         /**
@@ -81,8 +67,6 @@ export default {
         }
     },
     mounted() {
-        localStorage.setItem('onboarding-create-flow', 'connect-github');
-
         this.getWorkspace();
     }
 };
