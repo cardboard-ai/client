@@ -36,7 +36,7 @@ export default [
                 }
             },
             {
-                path: 'workspace-style',
+                path: ':id/workspace-style',
                 name: 'workspace-style',
                 component: WorkspaceStyle,
                 meta: {
@@ -45,7 +45,7 @@ export default [
                 }
             },
             {
-                path: 'connect-github',
+                path: ':id/connect-github',
                 name: 'connect-github',
                 component: ConnectGitHub,
                 meta: {
@@ -54,7 +54,7 @@ export default [
                 }
             },
             {
-                path: 'connect-jira',
+                path: ':id/connect-jira',
                 name: 'connect-jira',
                 component: ConnectJira,
                 meta: {
@@ -63,7 +63,7 @@ export default [
                 }
             },
             {
-                path: 'select-repository',
+                path: ':id/select-repository',
                 name: 'select-repository',
                 component: SelectRepository,
                 meta: {
@@ -72,7 +72,7 @@ export default [
                 }
             },
             {
-                path: 'issue-logic',
+                path: ':id/issue-logic',
                 name: 'issue-logic',
                 component: IssueLogic,
                 meta: {

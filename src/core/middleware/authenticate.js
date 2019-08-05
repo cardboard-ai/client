@@ -1,6 +1,6 @@
 export default function(context) {
     // eslint-disable-next-line
-    axios.get('http://127.0.0.1:8000/api/user')
+    axios.get('user')
         .then(function(response) {
             if (response.data instanceof Object) {
                 localStorage.setItem('user', JSON.stringify(response.data));

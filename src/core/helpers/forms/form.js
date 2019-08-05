@@ -51,48 +51,43 @@ window.Form = function(data, component) {
     /**
      * Open the form and specify it's HTTP method and URI.
      */
-    this.open = function(method, uri, actions, formName = null,) {
-        component.$validator.validate(formName).then(result => {
-            startProcess();
+    this.open = function(method, uri, formName = null) {
+        return component.$validator.validate(formName)
+            .then(result => {
+                startProcess();
 
-            // First validate the frontend
-            if (!result) {
-                defineErrors(component.$validator.errors);
+                // First validate the frontend
+                if (!result) {
+                    defineErrors(component.$validator.errors);
 
-                return false;
-            }
+                    return false;
+                }
+                // Prepare the form data by removing default properties
+                var formData = omit(this, ['errors', 'running', 'successful']);
 
-            // Prepare the form data by removing default properties
-            var formData = omit(this, ['errors', 'running', 'successful']);
+                // Execute the Axios request and process the backend validation
+                // eslint-disable-next-line
+                return new Promise(function(resolve, reject) {
+                    axios({ method: method, url: uri, data: formData }).then(response => {
+                        stopProcess();
 
-            // Execute the Axios request and process the backend validation
-            // eslint-disable-next-line
-            axios({ method: method, url: uri, data: formData })
-                .then(response => {
-                    stopProcess();
+                        resolve(response);
+                    })
+                    .catch(err => {
+                        if (err.response.status === 401) {
+                            localStorage.removeItem('user');
+                        }
 
-                    determineAction(response, actions);
-                })
-                .catch(err => {
-                    if (err.response.status === 401) {
-                        localStorage.removeItem('user');
-                    }
-
-                    defineErrors(err.response.data.errors);
+                        defineErrors(err.response.data.errors);
+                    });
                 });
-        });
+            });
     };
 
     /**
-     * Determine the next action after the XHR request is successful.
+     * Open the form as POST and specify it's URI and form instance.
      */
-    function determineAction(response, actions) {
-        switch (true) {
-            case has(actions, 'routeName'):
-                component.$router.push({ name: actions['routeName'] });
-                break;
-            default:
-                return response;
-        }
-    }
+    this.post = function(uri, formName = null) {
+        return this.open('post', uri, formName);
+    };
 };
