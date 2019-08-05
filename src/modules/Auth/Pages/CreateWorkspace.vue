@@ -30,6 +30,9 @@
                         v-validate="'required'"
                         placeholder="Cardboard.ai"
                     />
+                    <div class="text-red mt-1 mb-0 text-xs" v-show="form.errors.has('slug')">
+                        {{ form.errors.get('slug') }}
+                    </div>
                 </div>
                 <div class="mb-4">
                     <BaseButton
