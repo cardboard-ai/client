@@ -78,14 +78,14 @@ export default {
         create() {
             this.form.post('workspaces')
                 .then(response => {
-                    if (response.data) {
-                        this.$router.push({
-                            name: 'workspace-style',
-                            params: {
-                                id: response.data.id
-                            }
-                        });
-                    }
+                    this.$router.push({
+                        name: 'workspace-style',
+                        params: {
+                            id: response.data.id
+                        }
+                    });
+                }).catch(error => {
+                    // Do nothing
                 });
         }
     },

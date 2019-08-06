@@ -79,6 +79,8 @@ window.Form = function(data, component) {
                         }
 
                         defineErrors(err.response.data.errors);
+
+                        reject(err.response);
                     });
                 });
             });
