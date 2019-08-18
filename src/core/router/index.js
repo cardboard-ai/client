@@ -5,7 +5,7 @@ import routes from './routes';
 Vue.use(Router);
 
 // Initiliaze Vue instance and routes
-var router = new Router({
+let router = new Router({
     mode: 'history',
     base: process.env.BASE_URL,
     routes

@@ -48,26 +48,14 @@ export default {
     },
     methods: {
         /**
-         * Get the last created workspace from the user.
-         */
-        getWorkspace() {
-            axios.get('workspaces')
-                .then((response) => {
-                    this.workspace = last(toArray(response.data));
-                });
-        },
-        /**
          * Redirect the user to the the GitHub oAuth page.
          */
         redirectToGitHub() {
             localStorage.setItem('onboarding-create-flow', 'connect-github-clicked');
-            var url = process.env.VUE_APP_ROOT_API + 'workspace/' + this.workspace.id + '/github/login';
+            let url = process.env.VUE_APP_ROOT_API + 'workspace/' + this.$route.params.id + '/github/login';
 
             window.open(url, '_self');
         }
-    },
-    mounted() {
-        this.getWorkspace();
     }
 };
 </script>

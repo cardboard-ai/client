@@ -11,7 +11,7 @@ export default function(context) {
             context.next('/');
         })
         .catch(function(error) {
-            //
+            // Do nothing
         });
 
     if (user instanceof Object) {

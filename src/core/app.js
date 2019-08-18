@@ -26,7 +26,13 @@ window.axios.defaults.baseURL = process.env.VUE_APP_ROOT_API;
 window.axios.interceptors.response.use(function (response) {
     return response;
 }, function (error) {
+    let exceptions = ['login', 'register'];
+
     if (error.response.status === 401) {
+        if (exceptions.indexOf(router.currentRoute.name) !== -1) {
+            return Promise.resolve(error);
+        }
+
         router.push({ name: 'login' });
     }
 

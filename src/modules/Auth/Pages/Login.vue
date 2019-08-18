@@ -18,7 +18,7 @@
                 >
                     <span class="block sm:inline">{{ $t('label.logged_in') }}</span>
                 </div>
-                <form v-on:submit.prevent="login">
+                <form v-on:submit.prevent="login" v-on:keyup.enter="login">
                     <div class="mb-6">
                         <label
                             class="uppercase text-gray-500 font-bold text-xs tracking-wider"
@@ -77,7 +77,7 @@ export default {
     },
     methods: {
         login() {
-            this.form.open('post', 'magic/email');
+            this.form.post('magic/email');
         }
     }
 };

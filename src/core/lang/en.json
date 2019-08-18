@@ -5,7 +5,7 @@
         "create_workspace": "Create workspace – Cardboard",
         "workspace_style": "Style your workspace – Cardboard",
         "connect_github": "Connect GitHub – Cardboard",
-        "connect_github": "Connect Jira – Cardboard",
+        "connect_jira": "Connect Jira – Cardboard",
         "select_repository": "Select a GitHub repository – Cardboard",
         "issue_logic": "Setup your issue logic – Cardboard"
     },
