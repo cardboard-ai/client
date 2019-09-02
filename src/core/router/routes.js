@@ -10,6 +10,7 @@ import SelectRepository from '@/modules/Auth/Pages/SelectRepository.vue';
 import IssueLogic from '@/modules/Auth/Pages/IssueLogic.vue';
 import Dashboard from '@/modules/Dashboard/Pages/Dashboard.vue';
 import Authenticate from '@/core/middleware/authenticate';
+import RedirectToOnboarding from '@/core/middleware/redirect-to-onboarding';
 
 export default [
     {
@@ -88,7 +89,7 @@ export default [
         component: Dashboard,
         meta: {
             title: i18n.t('title.dashboard'),
-            middleware: [Authenticate]
+            middleware: [Authenticate, RedirectToOnboarding]
         }
     }
 ];

@@ -13,8 +13,4 @@ export default function(context) {
         .catch(function(error) {
             // Do nothing
         });
-
-    if (user instanceof Object) {
-        context.next();
-    }
 }

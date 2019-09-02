@@ -17,15 +17,30 @@
             <div class="mb-6">
                 <input class="text-gray-900 bg-blue-100 placeholder:text-gray-500 appearance-none border border-blue-200 rounded w-full p-2 mt-2 focus:outline-none" :placeholder="$t('label.search_repositories')" v-model="search">
             </div>
-            <div v-for="repository in filteredRepositories.slice(0, 4)">
-                <div class="flex mb-6 py-8 px-12 shadow-md border rounded">
+            <div v-for="repository in filteredRepositories.slice(0, resultAmount)">
+                <div v-on:click="storeRepository(repository.id)"class="flex items-center mb-5 py-4 px-12 shadow-md border rounded cursor-pointer hover:bg-gray-200">
                     <div>
                         <svg width="48" height="48" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#2e5bff" class="m-auto">
                             <circle opacity=".2" cx="24" cy="24" r="24"/>
+                            <text x="11" y="30" class="text-xl uppercase">
+                                {{ getFirstCharFromTitle(repository.full_name) }}
+                            </text>
                         </svg>
                     </div>
-                    <div class="align-middle">{{ repository.full_name }}</div>
+                    <div class="align-bottom ml-6">{{ repository.full_name }}</div>
                 </div>
+            </div>
+            <div v-if="filteredRepositories.length == 0">No result found.</div>
+            <div class="text-center text-gray-500" v-if="filteredRepositories.length - resultAmount > 0">
+                <div class="border inline-block align-middle w-1/3"></div>
+                <div
+                    v-on:click="addResultAmount"
+                    v-if="filteredRepositories.length - resultAmount > 0"
+                    class="cursor-pointer inline-block w-1/3 uppercase text-sm"
+                >
+                    Load {{ filteredRepositories.length - resultAmount }} more
+                </div>
+                <div class="border inline-block align-middle w-1/3"></div>
             </div>
             <p class="text-center mt-6 text-gray-500">
                 {{ $t("label.want_to") }}
@@ -53,10 +68,11 @@ export default {
     },
     data() {
         return {
-            workspace: [],
+            form: new Form({ repository: '' }, this),
             allRepositories: [],
             search: '',
-            searchResults: []
+            searchResults: [],
+            resultAmount: 4,
         };
     },
     computed: {
@@ -67,23 +83,53 @@ export default {
         }
     },
     methods: {
-        getWorkspace() {
-            axios.get('workspaces')
-                .then((response) => {
-                    this.workspace = last(toArray(response.data));
-
-                    this.getAllRepositories(this.workspace.id);
-                });
-        },
-        getAllRepositories(workspaceId) {
-            axios.get('workspace/' + workspaceId + '/github/repositories')
+        /**
+         * Get all the repositories based on the workspace ID.
+         */
+        getAllRepositories() {
+            axios.get('workspace/' + this.$route.params.id + '/github/repositories')
                 .then((response) => {
                     this.allRepositories = toArray(response.data);
+                });
+        },
+        /**
+         * Get the first character from the repository name for the dynamic SVG.
+         */
+        getFirstCharFromTitle(repositoryName) {
+            var nameIntAfterSlash = repositoryName.lastIndexOf('/') + 1;
+
+            return repositoryName.substring(nameIntAfterSlash, nameIntAfterSlash + 2);
+        },
+        /**
+         * Add the amount of repositories that should be shown.
+         */
+        addResultAmount() {
+            if (this.resultAmount < this.filteredRepositories.length) {
+                this.resultAmount = this.resultAmount + 4;
+            }
+        },
+        /**
+         * Store the repository based on the repository ID.
+         */
+        storeRepository(repositoryId) {
+            this.form.repository = repositoryId;
+
+            this.form.post('workspace/' + this.$route.params.id + '/github/repositories')
+                .then(response => {
+                    // To-do: push to other page
+                    this.$router.push({
+                        name: 'workspace-style',
+                        params: {
+                            id: response.data.id
+                        }
+                    });
+                }).catch(error => {
+                    // Do nothing
                 });
         }
     },
     mounted() {
-        this.getWorkspace();
+        this.getAllRepositories();
     }
 };
 </script>

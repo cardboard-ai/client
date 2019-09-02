@@ -52,6 +52,8 @@ export default {
          */
         redirectToGitHub() {
             localStorage.setItem('onboarding-create-flow', 'connect-github-clicked');
+            localStorage.setItem('workspace-id', this.$route.params.id);
+
             let url = process.env.VUE_APP_ROOT_API + 'workspace/' + this.$route.params.id + '/github/login';
 
             window.open(url, '_self');

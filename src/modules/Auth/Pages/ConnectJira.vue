@@ -87,7 +87,6 @@ export default {
     },
     data() {
         return {
-            workspace: [],
             form: new Form(
                 {
                     username: '',
@@ -100,31 +99,26 @@ export default {
     },
     methods: {
         /**
-         * Get the last created workspace from the user.
-         */
-        getWorkspace() {
-            axios.get('workspaces')
-                .then((response) => {
-                    this.workspace = last(toArray(response.data));
-                });
-        },
-        /**
          * Create the Jira social account link.
          */
         connect: function() {
             localStorage.setItem('onboarding-create-flow', 'connect-jira');
 
-            this.form.open(
-                'post',
-                'workspace/' + this.workspace.id + '/jira/login',
-                {'routeName':'dashboard'}
-            );
+            this.form.post('workspace/' + this.$route.params.id + '/jira/login')
+                .then(response => {
+                    this.$router.push({
+                        name: 'select-repository',
+                        params: {
+                            id: response.data.id
+                        }
+                    });
+                }).catch(error => {
+                    // Do nothing
+                });
         }
     },
     mounted() {
         localStorage.setItem('onboarding-create-flow', 'connect-jira');
-
-        this.getWorkspace();
     }
 };
 </script>

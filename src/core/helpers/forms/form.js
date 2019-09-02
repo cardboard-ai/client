@@ -63,7 +63,7 @@ window.Form = function(data, component) {
                     return false;
                 }
                 // Prepare the form data by removing default properties
-                var formData = omit(this, ['errors', 'running', 'successful']);
+                let formData = omit(this, ['errors', 'running', 'successful']);
 
                 // Execute the Axios request and process the backend validation
                 // eslint-disable-next-line
