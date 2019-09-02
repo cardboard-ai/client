@@ -7,6 +7,7 @@
         "connect_github": "Connect GitHub – Cardboard",
         "connect_jira": "Connect Jira – Cardboard",
         "select_repository": "Select a GitHub repository – Cardboard",
+        "select_project": "Select a Jira project – Cardboard",
         "issue_logic": "Setup your issue logic – Cardboard"
     },
     "heading": {
@@ -16,7 +17,8 @@
         "workspace_style": "Bring your style",
         "connect_github": "Connect with GitHub",
         "connect_jira": "Connecting Jira",
-        "select_repository": "Select a repository",
+        "select_repository": "Select a GitHub repository",
+        "select_project": "Select a Jira project",
         "issue_logic": "Issue logic"
     },
     "leading": {
@@ -27,6 +29,7 @@
         "connect_github": "Integrations make the magic happen",
         "connect_jira": "Integrations make the magic happen",
         "select_repository": "Where are you working on?",
+        "select_project": "Which project are you working on?",
         "issue_logic": "Automate your taskboard"
     },
     "label": {
@@ -52,7 +55,8 @@
         "need_some": "Need some",
         "help": "Help",
         "with_the_setup": "With the setup?",
-        "search_repositories": "Search your Github repositories"
+        "search_repositories": "Search your Github repositories",
+        "no_result": "We haven't found any results."
     },
     "caption": {
         "github_privacy_explanation": "Explanation for which you need to connect with GitHub and what we use your data for and a reference to our"

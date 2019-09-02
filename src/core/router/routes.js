@@ -7,6 +7,7 @@ import WorkspaceStyle from '@/modules/Auth/Pages/WorkspaceStyle.vue';
 import ConnectGitHub from '@/modules/Auth/Pages/ConnectGitHub.vue';
 import ConnectJira from '@/modules/Auth/Pages/ConnectJira.vue';
 import SelectRepository from '@/modules/Auth/Pages/SelectRepository.vue';
+import SelectProject from '@/modules/Auth/Pages/SelectProject.vue';
 import IssueLogic from '@/modules/Auth/Pages/IssueLogic.vue';
 import Dashboard from '@/modules/Dashboard/Pages/Dashboard.vue';
 import Authenticate from '@/core/middleware/authenticate';
@@ -69,6 +70,15 @@ export default [
                 component: SelectRepository,
                 meta: {
                     title: i18n.t('title.select_repository'),
+                    middleware: [Authenticate]
+                }
+            },
+            {
+                path: ':id/select-project',
+                name: 'select-project',
+                component: SelectProject,
+                meta: {
+                    title: i18n.t('title.select_project'),
                     middleware: [Authenticate]
                 }
             },
