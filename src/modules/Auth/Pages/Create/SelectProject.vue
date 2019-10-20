@@ -5,9 +5,9 @@
                 <h1 class="text-gray-900 text-xl font-semibold">{{ $t('app') }}</h1>
             </router-link>
         </div>
-        <div class="mt-32">
+        <div class="mt-16 sm:mt-32">
             <div class="text-center">
-                <h1 class="text-gray-900 text-4xl font-hairline">
+                <h1 class="text-gray-900 text-2xl sm:text-4xl font-hairline">
                     {{ $t('heading.select_project') }}
                 </h1>
                 <p class="leading-loose text-gray-700 mb-4">

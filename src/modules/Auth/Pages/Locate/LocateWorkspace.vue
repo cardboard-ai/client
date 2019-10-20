@@ -7,7 +7,7 @@
         </div>
         <div class="mt-32">
             <div class="text-center">
-                <h1 class="text-gray-900 text-4xl font-hairline">
+                <h1 class="text-gray-900 text-2xl sm:text-4xl font-hairline">
                     {{ $t('heading.locate_workspace') }}
                 </h1>
                 <p class="leading-loose text-gray-700 mb-4">
