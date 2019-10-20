@@ -107,9 +107,9 @@ export default {
             this.form.post('workspace/' + this.$route.params.id + '/jira/login')
                 .then(response => {
                     this.$router.push({
-                        name: 'select-repository',
+                        name: 'select-project',
                         params: {
-                            id: response.data.id
+                            id: this.$route.params.id
                         }
                     });
                 }).catch(error => {
