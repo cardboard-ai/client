@@ -87,7 +87,7 @@ window.Form = function(data, component) {
     };
 
     /**
-     * Open the form as POST and specify it's URI and form instance.
+     * Open the form as POST and specify its URI and form instance.
      */
     this.post = function(uri, formName = null) {
         return this.open('post', uri, formName);
