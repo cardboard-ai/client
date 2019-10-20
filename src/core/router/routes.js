@@ -2,13 +2,17 @@ import i18n from '@/core/locales';
 import Login from '@/modules/Auth/Pages/Login.vue';
 import Register from '@/modules/Auth/Pages/Register.vue';
 import Auth from '@/core/layouts/Auth';
-import CreateWorkspace from '@/modules/Auth/Pages/CreateWorkspace.vue';
-import WorkspaceStyle from '@/modules/Auth/Pages/WorkspaceStyle.vue';
-import ConnectGitHub from '@/modules/Auth/Pages/ConnectGitHub.vue';
-import ConnectJira from '@/modules/Auth/Pages/ConnectJira.vue';
-import SelectRepository from '@/modules/Auth/Pages/SelectRepository.vue';
-import SelectProject from '@/modules/Auth/Pages/SelectProject.vue';
-import IssueLogic from '@/modules/Auth/Pages/IssueLogic.vue';
+
+import CreateWorkspace from '@/modules/Auth/Pages/Create/CreateWorkspace.vue';
+import WorkspaceStyle from '@/modules/Auth/Pages/Create/WorkspaceStyle.vue';
+import ConnectGitHub from '@/modules/Auth/Pages/Create/ConnectGitHub.vue';
+import ConnectJira from '@/modules/Auth/Pages/Create/ConnectJira.vue';
+import SelectRepository from '@/modules/Auth/Pages/Create/SelectRepository.vue';
+import SelectProject from '@/modules/Auth/Pages/Create/SelectProject.vue';
+import IssueLogic from '@/modules/Auth/Pages/Create/IssueLogic.vue';
+
+import LocateWorkspace from '@/modules/Auth/Pages/Locate/LocateWorkspace.vue';
+
 import Dashboard from '@/modules/Dashboard/Pages/Dashboard.vue';
 import Authenticate from '@/core/middleware/authenticate';
 import RedirectToOnboarding from '@/core/middleware/redirect-to-onboarding';
@@ -88,6 +92,15 @@ export default [
                 component: IssueLogic,
                 meta: {
                     title: i18n.t('title.issue_logic'),
+                    middleware: [Authenticate]
+                }
+            },
+            {
+                path: 'locate-workspace',
+                name: 'locate-workspace',
+                component: LocateWorkspace,
+                meta: {
+                    title: i18n.t('title.locate_workspace'),
                     middleware: [Authenticate]
                 }
             },

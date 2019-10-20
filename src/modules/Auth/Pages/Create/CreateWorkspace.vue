@@ -47,7 +47,7 @@
                 {{ $t("label.want_to") }}
                 <router-link
                     class="text-blue-700 no-underline lowercase"
-                    :to="{ name:'register' }"
+                    :to="{ name:'locate-workspace' }"
                 >
                     {{ $t('label.join_workspace') }}<span class="text-gray-500">{{ $t('label.question_mark') }}</span> 
                 </router-link>

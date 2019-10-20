@@ -8,7 +8,8 @@
         "connect_jira": "Connect Jira – Cardboard",
         "select_repository": "Select a GitHub repository – Cardboard",
         "select_project": "Select a Jira project – Cardboard",
-        "issue_logic": "Setup your issue logic – Cardboard"
+        "issue_logic": "Setup your issue logic – Cardboard",
+        "locate_workspace": "Locate your workspace – Cardboard"
     },
     "heading": {
         "login": "Sign in to Cardboard",
@@ -19,7 +20,8 @@
         "connect_jira": "Connecting Jira",
         "select_repository": "Select a GitHub repository",
         "select_project": "Select a Jira project",
-        "issue_logic": "Issue logic"
+        "issue_logic": "Issue logic",
+        "locate_workspace": "Locate your workspace"
     },
     "leading": {
         "login": "Please enter your credentials to proceed.",
@@ -30,10 +32,11 @@
         "connect_jira": "Integrations make the magic happen",
         "select_repository": "Where are you working on?",
         "select_project": "Which project are you working on?",
-        "issue_logic": "Automate your taskboard"
+        "issue_logic": "Automate your taskboard",
+        "locate_workspace": "Select a workspace you’re invited by."
     },
     "label": {
-        "no_account": "Don't have an account yet?",
+        "no_account": "Don’t have an account yet?",
         "register": "Sign up",
         "already_account": "Already have an account?",
         "logged_in": "We have e-mailed you a magic link! By clicking on this link you are logged in immediately.",
@@ -55,8 +58,10 @@
         "need_some": "Need some",
         "help": "Help",
         "with_the_setup": "With the setup?",
-        "search_repositories": "Search your Github repositories",
-        "no_result": "We haven't found any results."
+        "search_repositories": "Search your GitHub repositories...",
+        "search_projects": "Search your Jira projects...",
+        "search_workspaces": "Search your workspaces...",
+        "no_result": "We haven’t found any results so far..."
     },
     "caption": {
         "github_privacy_explanation": "Explanation for which you need to connect with GitHub and what we use your data for and a reference to our"
