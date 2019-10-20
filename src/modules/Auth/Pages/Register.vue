@@ -133,7 +133,9 @@ export default {
         register: function() {
             this.form.post('register')
                 .then((response) => {
-                    this.$router.push({ name: 'create-workspace' });
+                    if (response) {
+                        this.$router.push({ name: 'create-workspace' });
+                    }
                 }).catch(error => {
                     // Do nothing
                 });

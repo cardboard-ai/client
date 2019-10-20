@@ -116,9 +116,8 @@ export default {
 
             this.form.post('workspace/' + this.$route.params.id + '/jira/projects')
                 .then(response => {
-                    // To-do: push to other page
                     this.$router.push({
-                        name: 'workspace-style',
+                        name: 'issue-logic',
                         params: {
                             id: response.data.id
                         }

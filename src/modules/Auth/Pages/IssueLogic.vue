@@ -63,7 +63,7 @@
             </form>
             <p class="text-center mt-6 text-gray-500">
                 {{ $t('label.need_some') }}
-                <router-link class="text-blue-700 no-underline lowercase" :to="{ name:'add-repository' }">
+                <router-link class="text-blue-700 no-underline lowercase" :to="{ name:'invite-users' }">
                     {{ $t('label.help') }}
                 </router-link>
                 <span class="lowercase">{{ $t('label.with_the_setup') }}</span>

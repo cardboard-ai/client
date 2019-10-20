@@ -116,9 +116,8 @@ export default {
 
             this.form.post('workspace/' + this.$route.params.id + '/github/repositories')
                 .then(response => {
-                    // To-do: push to other page
                     this.$router.push({
-                        name: 'workspace-style',
+                        name: 'connect-jira',
                         params: {
                             id: response.data.id
                         }
